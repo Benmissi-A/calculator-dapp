@@ -9,7 +9,6 @@ function App() {
   const calc = useContract(calcAddress, calcAbi);
   return (
     <CalcContext.Provider value={calc}>
-      <h1>Hello Calculator</h1>
        <Dapp />
     </CalcContext.Provider>
    );
