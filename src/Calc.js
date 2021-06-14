@@ -11,7 +11,7 @@ const Calc = () => {
   const [number, setNumber] = useState(["0", "0"]);
   const [result, setResult] = useState(0);
   const [error, setError] = useState("error");
-  const [operator, setOperator] = useState("");
+  const [operator, setOperator] = useState("operator");
   const [isReady, setIsReady] = useState(false);
 
   const handleClickAddToNumber = (e) => {
@@ -37,8 +37,6 @@ const Calc = () => {
     setNb(1);
     setIsReady(false);
     setOperator(e.target.value);
-    console.log(e.target.value);
-    console.log(operator)
   };
 
   const handleClickResolve = async () => {
@@ -100,29 +98,24 @@ const Calc = () => {
     setCalcScreen(0);
   };
 
-  useEffect(() => {
-    setCalcScreen(result);
-  }, [result]);
-
+  
   useEffect(() => {
     setCalcScreen(error);
   }, [error]);
   
   useEffect(() => {
     setCalcScreen(number[nb]);
-  }, [number, nb]);
-  
+  }, [number,nb]);
+
   useEffect(() => {
     setCalcScreen(operator);
   }, [operator]);
+  
+  useEffect(() => {
+    setCalcScreen(result);
+  }, [result]);
 
-  console.log("number");
-  console.log(number);
-  console.log("operator");
-  console.log(operator);
-  console.log("result");
-  console.log(result);
-
+  
   return (
     <>
       <h1 className="text-center">Calculator</h1>
